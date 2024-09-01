@@ -44,6 +44,7 @@ function showBook(){
 
     // create button to remove the book
     const removeButton = document.createElement("button");
+    removeButton.classList.add("remove-button");
     removeButton.textContent = "Remove";
     removeButton.setAttribute('data-index', i);
     removeButton.addEventListener('click', () => {

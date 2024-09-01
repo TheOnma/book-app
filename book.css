@@ -75,15 +75,15 @@ h1 {
 }
 
 .book-card button:hover {
-  background: #357ABD;
+  background: #b68936;
 }
 
 /* Remove Button Styling */
-.book-card button.remove {
+.book-card button.remove-button {
   background: #FF6F61;
 }
 
-.book-card button.remove:hover {
+.book-card button.remove-button:hover {
   background: #E0584F;
 }
 
