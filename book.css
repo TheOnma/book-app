@@ -1,0 +1,153 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F4F4F4;
+  color: #333333;
+  padding: 20px;
+}
+
+/* Container for Books */
+#booksContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Book Card Styling */
+.book-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Book Title Styling */
+.book-card h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #4A90E2;
+}
+
+/* Book Details Styling */
+.book-card p {
+  margin-bottom: 8px;
+}
+
+/* Button Styling */
+.book-card button {
+  background: #4A90E2;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 5px;
+}
+
+.book-card button:hover {
+  background: #357ABD;
+}
+
+/* Remove Button Styling */
+.book-card button.remove {
+  background: #FF6F61;
+}
+
+.book-card button.remove:hover {
+  background: #E0584F;
+}
+
+/* Show Books and New Book Buttons */
+button.show-books,
+button.new-book {
+  background: #A4E665;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin: 10px 5px;
+  display: inline-block;
+}
+
+button.show-books:hover,
+button.new-book:hover {
+  background: #8BD553;
+  transform: translateY(-5px);
+}
+
+/* New Book Form Styling */
+#newBookDialog {
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#newBookForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#newBookForm label {
+  display: block;
+  font-weight: bold;
+  color: #4A90E2;
+}
+
+#newBookForm input[type="text"],
+#newBookForm input[type="number"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#newBookForm input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+#newBookForm button {
+  background: #28a745;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#newBookForm button:hover {
+  background: #218838;
+}
+
+#newBookForm button.cancel {
+  background: #6c757d;
+}
+
+#newBookForm button.cancel:hover {
+  background: #5a6268;
+}

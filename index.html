@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="book.css">
+  <title>Book App</title>
+</head>
+<body>
+  <h1>Welcome to the book app</h1>
+  <button id="showBooks">Show Books</button>
+  <button id="newBookButton">New Book</button>
+  <div id="booksContainer"></div>
+
+  <dialog id="newBookDialog">
+    <form id="newBookForm">
+      <h2>Add a New Book</h2>
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div class="form-group">
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author" required>
+      </div>
+      <div class="form-group">
+          <label for="pages">Number of Pages:</label>
+          <input type="number" id="pages" name="pages" required>
+      </div>
+      <div class="form-group">
+          <label>
+              <input type="checkbox" id="read" name="read"> Read
+          </label>
+      </div>
+      <button type="submit" id="addBook">Add Book</button>
+      <button type="button" id="cancelButton">Cancel</button>
+    </form>
+  </dialog>
+
+  <script src="book.js"></script>
+</body>
+</html>
