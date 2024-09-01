@@ -2,20 +2,20 @@ function Book(title, author, pages, read) {
   this.title  = title;
   this.author = author;
   this.pages = pages;
-  this.read = read;
+  this.read = read ? "Yes" : "No";
   this.info = function(){
     return(`${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`);
   }
 }
 
 Book.prototype.toggleReadStatus = function() {
-  this.read = !this.read;
-}
+  this.read = this.read === "Yes" ? "No" : "Yes";
+};
 
 let myLibrary = [
-  new Book("The Great Gatsby", "F. Scott Fitzgerald", 180 , "yes"),
-  new Book("To Kill a Mockingbird", "Harper Lee", 281, "no"),
-  new Book("1984", "George Orwell", 328, "yes"),
+  new Book("The Great Gatsby", "F. Scott Fitzgerald", 180 , true),
+  new Book("To Kill a Mockingbird", "Harper Lee", 281, false),
+  new Book("1984", "George Orwell", 328, true),
 ];
 
 function showBook(){
@@ -36,7 +36,11 @@ function showBook(){
     bookPages.innerHTML = `<strong>Pages:</strong> ${myLibrary[i].pages}`;
 
     const bookRead = document.createElement("p");
-    bookRead.innerHTML = `<strong>Read:</strong> ${myLibrary[i].read? "Yes" : "No"}`;
+    bookRead.innerHTML = `<strong>Read:</strong> <span class="toggle-read">${myLibrary[i].read}</span>`;
+    bookRead.setAttribute('data-index', i);
+    bookRead.querySelector('.toggle-read').addEventListener('click', () => {
+      toggleReadStatus(i);
+    });
 
     // create button to remove the book
     const removeButton = document.createElement("button");
@@ -46,18 +50,10 @@ function showBook(){
       removeBook(i);
     });
 
-    const toggleReadButton = document.createElement("button");
-    toggleReadButton.textContent = "Toggle Read Status";
-    toggleReadButton.setAttribute('data-index', i);
-    toggleReadButton.addEventListener('click', () => {
-      toggleReadStatus(i);
-    });
-
     bookCard.appendChild(bookTitle);
     bookCard.appendChild(bookAuthor);
     bookCard.appendChild(bookPages);
     bookCard.appendChild(bookRead);
-    bookCard.appendChild(toggleReadButton);
     bookCard.appendChild(removeButton);
 
     booksContainer.appendChild(bookCard);
@@ -78,7 +74,7 @@ document.getElementById("showBooks").addEventListener("click", showBook);
 document.getElementById("newBookButton").addEventListener("click", ()=> {document.getElementById("newBookDialog").showModal();
 })
 document.getElementById("cancelButton").addEventListener("click", ()=> {document.getElementById("newBookDialog").close();})
-document.getElementById("newBookForm").addEventListener("submit", function(e){e.preventDefault
+document.getElementById("newBookForm").addEventListener("submit", function(e){e.preventDefault();
 
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
@@ -88,8 +84,7 @@ document.getElementById("newBookForm").addEventListener("submit", function(e){e.
   addBookToLibrary(title, author, pages, read);
 
   document.getElementById('newBookDialog').close();
-
-  // document.getElementById("newBookForm").reset();
+  this.reset();
 });
 
 function addBookToLibrary(title, author, pages, read){

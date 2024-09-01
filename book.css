@@ -8,11 +8,23 @@
 /* Body Styling */
 body {
   font-family: Arial, sans-serif;
-  background-color: #F4F4F4;
+  background-color: #b46b33;
   color: #333333;
   padding: 20px;
 }
-
+h1 {
+  text-align: center;
+  color: #c5723a;
+  font-family: Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 20px;
+  background-color: #76d66a;
+  border-bottom: 3px solid #ba821b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 /* Container for Books */
 #booksContainer {
   display: flex;
@@ -41,7 +53,7 @@ body {
 .book-card h2 {
   font-size: 1.5em;
   margin-bottom: 10px;
-  color: #4A90E2;
+  color: #b68936;
 }
 
 /* Book Details Styling */
@@ -51,7 +63,7 @@ body {
 
 /* Button Styling */
 .book-card button {
-  background: #4A90E2;
+  background: #aed957;
   color: #FFFFFF;
   border: none;
   border-radius: 4px;
@@ -75,35 +87,55 @@ body {
   background: #E0584F;
 }
 
-/* Show Books and New Book Buttons */
-button.show-books,
-button.new-book {
-  background: #A4E665;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 20px;
-  font-size: 1.2em;
+.toggle-read{
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-  margin: 10px 5px;
-  display: inline-block;
 }
 
-button.show-books:hover,
-button.new-book:hover {
+/* Show Books and New Book Buttons */
+button#showBooks,
+button#newBookButton {
+  display: block;                   
+  width: 100%;                      
+  max-width: 500px;                 
+  margin: 20px auto;                
+  text-align: center;               
+  color: #c5723a;                   
+  font-family: Arial, sans-serif;   
+  font-size: 2rem;                  
+  font-weight: bold;                
+  letter-spacing: 2px;              /* Letter spacing */
+  padding: 15px;                    /* Padding inside the button */
+  background-color: #76d66a;        /* Background color */
+  border-bottom: 3px solid #ba821b; /* Bottom border color and size */
+  border-radius: 8px;               /* Adds rounded corners to the button */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  cursor: pointer;                  /* Changes the cursor to a pointer on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Adds smooth transitions */
+}
+
+button#showBooks:hover,
+button#newBookButton:hover {
   background: #8BD553;
   transform: translateY(-5px);
 }
 
 /* New Book Form Styling */
-#newBookDialog {
-  width: 90%;
-  max-width: 500px;
+dialog#newBookDialog {
+  width: 400px;
   padding: 20px;
-  background: #FFFFFF;
+  border: none;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+dialog#newBookDialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #newBookForm {
@@ -115,7 +147,7 @@ button.new-book:hover {
 #newBookForm label {
   display: block;
   font-weight: bold;
-  color: #4A90E2;
+  color: #76d66a;
 }
 
 #newBookForm input[type="text"],
@@ -130,7 +162,7 @@ button.new-book:hover {
 }
 
 #newBookForm button {
-  background: #28a745;
+  background: #6a72b8;
   color: #FFFFFF;
   border: none;
   border-radius: 4px;
@@ -141,7 +173,7 @@ button.new-book:hover {
 }
 
 #newBookForm button:hover {
-  background: #218838;
+  background: #a0afd9;
 }
 
 #newBookForm button.cancel {
@@ -151,3 +183,4 @@ button.new-book:hover {
 #newBookForm button.cancel:hover {
   background: #5a6268;
 }
+
