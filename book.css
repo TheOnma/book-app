@@ -80,11 +80,11 @@ h1 {
 
 /* Remove Button Styling */
 .book-card button.remove-button {
-  background: #FF6F61;
+  background: #b68936;
 }
 
 .book-card button.remove-button:hover {
-  background: #E0584F;
+  background: #FF6F61;
 }
 
 .toggle-read{
